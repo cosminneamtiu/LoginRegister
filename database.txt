@@ -1,2 +1,7 @@
-Cosmin parola123; 
-Delia password3246; 
+USER:cosmin0023PASS:bluey235; 
+USER:cosmyPASS:4dwada; 
+USER:kingPASS:asdfh; 
+USER:dariusPASS:iuku;
+
+USER:candilaPASS:kawd23;
+USER:dedePASS:dadwsc32;

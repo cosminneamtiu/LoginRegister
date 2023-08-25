@@ -9,12 +9,24 @@ using namespace std;
 void registeringAccount(string newName, string newPassword) {
     fstream myDb;
     myDb.open("database.txt", ios::app | ios::out);
-    myDb << newName << " ";
-    myDb << newPassword << "; \n";
+    myDb << "\nUSER:" << newName;
+    myDb << "PASS:" << newPassword << ";";
     myDb.close();
 }
 
-void loggingAccount(fstream myDb, string presumedName, string presumePassword) {
+void loggingAccount(string presumedName, string presumedPassword) {
+    fstream myDb;
+    myDb.open("database.txt", ios::in);
+    string SearchedAccountCredentials;
+    string word;
+    SearchedAccountCredentials = "USER:" + presumedName + "PASS:" + presumedPassword + ";";
+    cout << endl << SearchedAccountCredentials;
+    while (myDb >> word) {
+        if (word == SearchedAccountCredentials) {
+            cout << "Login is Succesful!";
+            break;
+        }
+    }
 
 }
 
@@ -31,7 +43,7 @@ int main()
         cin >> name;
         cout << "write your password:\n";
         cin >> password;
-       // loggingAccount(myDatabaseFile, name, password);
+        loggingAccount(name, password);
     }
     else if (choiceAccount == 0) {
         cout << "Lets get you an account!\nWrite your name:\n";
