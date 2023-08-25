@@ -2,10 +2,48 @@
 //
 
 #include <iostream>
+#include <fstream>
+
+using namespace std;
+
+void registeringAccount(string newName, string newPassword) {
+    fstream myDb;
+    myDb.open("database.txt", ios::app | ios::out);
+    myDb << newName << " ";
+    myDb << newPassword << "; \n";
+    myDb.close();
+}
+
+void loggingAccount(fstream myDb, string presumedName, string presumePassword) {
+
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    int choiceAccount;
+    string name;
+    string password;
+    fstream myDatabaseFile;
+    cout << " Do you have an account?\n 1 for yes, 0 for no\n";
+    cin >> choiceAccount;
+    if (choiceAccount == 1) {
+        cout << "Write your name:\n";
+        cin >> name;
+        cout << "write your password:\n";
+        cin >> password;
+       // loggingAccount(myDatabaseFile, name, password);
+    }
+    else if (choiceAccount == 0) {
+        cout << "Lets get you an account!\nWrite your name:\n";
+        cin >> name;
+        cout << "write your password:\n";
+        cin >> password;
+        registeringAccount(name, password);
+    }
+
+
+    myDatabaseFile.close();
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
