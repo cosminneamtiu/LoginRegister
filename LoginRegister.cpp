@@ -51,6 +51,9 @@ int main()
         cout << "write your password:\n";
         cin >> password;
         registeringAccount(name, password);
+    }else {
+        cout << "Impossible choice, exiting";
+        exit(EXIT_FAILURE);
     }
 
 
